@@ -1,9 +1,6 @@
 h1{ color:aquamarine;
-    fond-size:20px; 
+    font: size 10px; 
     margin:0;}
-
 h1#second-title{color:chartreuse;}
 
 h1.italic-title{font-style:italic;}
-
-rect{fill:red; stroke:green}
