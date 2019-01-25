@@ -1,4 +1,4 @@
-
+ 
 document.getElementByid ("title").innerHTML="Welcome JavaScript";
 
     var myNumber = 42;
