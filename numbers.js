@@ -36,8 +36,9 @@ document.getElementById ("title").innerHTML="Welcome JavaScript";
     var plusTen=function(num){return num+10;}
     var thirty=plusTen(20);
     console.log(20)
-
+    
     var thirty
+
 var newnum=20;
     if (newnum>100) {console.log("bog number");
     }
