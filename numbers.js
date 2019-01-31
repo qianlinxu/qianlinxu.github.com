@@ -1,5 +1,5 @@
  
-document.getElementByid ("title").innerHTML="Welcome JavaScript";
+document.getElementById ("title").innerHTML="Welcome JavaScript";
 
     var myNumber = 42;
     myNumber=myNumber+10;
