@@ -1,7 +1,3 @@
-<!DOCTYPE html>
-<html>
-<script>
-
 var number = 1;
 var print_num = function(num){console.log(num)}
 print_num(number);
@@ -11,10 +7,3 @@ change_number(number);
 
 print_num(number);
 
-
-
-
-</script>
-
-
-</html>
