@@ -1,6 +1,7 @@
 var myfunction = Function()
+
 {
-x=document.getElementById("demo");  
-x.innerHTML="Hello JavaScript!";    
+document.getElementById("demo");  
+innerHTML="Hello JavaScript!";    
 }
 
