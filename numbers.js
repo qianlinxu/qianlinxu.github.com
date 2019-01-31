@@ -21,7 +21,7 @@ document.getElementById ("title").innerHTML="Welcome JavaScript";
     greet:function(greeting) {console.log(greeting="Lin")} 
     };
 
-   complexUser.greet("goodbyl");
+   complexUser.greet("goodbye");
     
     console.log(complexUser.color);
 
@@ -40,7 +40,7 @@ document.getElementById ("title").innerHTML="Welcome JavaScript";
     var thirty
 
 var newnum=20;
-    if (newnum>100) {console.log("bog number");
+    if (newnum>100) {console.log("big number");
     }
 
     else{console.log("not big");
