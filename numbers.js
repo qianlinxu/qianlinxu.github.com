@@ -51,7 +51,7 @@ var newnum=20;
     return num>10;
     }
 
-var checknumber = greaterthanten(5);
-console.log(checknumber);
+    greaterthanten("5");
+
 
 
