@@ -1,7 +1,10 @@
-var myfunction = Function()
+
+
+
+var myfunction = function()
 
 {
-document.getElementById("demo");  
-innerHTML="Hello JavaScript!";    
+    console.log("hello")
+document.getElementById("demo").innerHTML="Hello JavaScript!";    
 }
 
