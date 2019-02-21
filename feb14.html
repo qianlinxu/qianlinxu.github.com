@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+      <head>
+        <meta charset="utf-8" />
+        <title>Load Data </title>
+         </head>
+        
+        <body>
+             <h1 id="title">scale,tooltips,axes </h1>
+             <script src="https://d3js.org/d3.v4.min.js"> 
+             </script>
+
+           <svg>
+           </svg>
+
+          <script>
+
+          var data=[0.2,1.7,3.4,4.2]
+          var xScale=d3.scaleliner()
+           .domin([0,5])
+           .range([0,window.innerwidth]);
+
+           var colorscale=d3.scaleliner()
+           .domin([0,5])
+           .range(["black","red"]);
+
+          var svg= d3.select("svg")
+           var circles=svg.selectall("circle").data(data);
+
+  circle.eneter().append("circle")
+  .attr("r",0);
+  .attr("fill",fuction(d)={return colorscale (d)});
+
+        </script>
+       </body>
+       
+  
+</html>
