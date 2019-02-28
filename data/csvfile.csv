@@ -1,4 +1,6 @@
-country,value
-usa,4
-mexico,10
-canada,6
+year, country,value
+2000,usa,4
+2009,usa,20
+2001,mexico,10
+2010,mexico,30
+2019,canada,20

@@ -1,0 +1,10 @@
+[{ "city": "boston",
+    "value": 4},
+   
+   { "city": "NY",
+       "value": 5},
+   
+    { "city": "LA",
+       "value": 6}
+   
+   ]
