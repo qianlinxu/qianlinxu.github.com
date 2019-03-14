@@ -1,4 +1,4 @@
-Country,Cumulative number of confirmed, probable and suspected Ebola cases,Cumulative number of confirmed, probable and suspected Ebola deaths,Cumulative number of confirmed Ebola cases,Time
+Country,Cumulative number of confirmed,Probable and suspected Ebola cases,Cumulative number of confirmed, Probable and suspected Ebola deaths,Cumulative number of confirmed Ebola cases,Time
 Guinea,1553,926,1312,2014/10
 Liberia,4665,2705,965,2014/10
 Mali,1,1,1,2014/10
@@ -7,7 +7,6 @@ Senegal,1,0,1,2014/10
 Sierra Leone,3896,1281,3389,2014/10
 Spain,1,0,1,2014/10
 United States of America,4,1,4,2014/10
-
 Guinea,1919,1166,1647,2014/11
 Liberia,6878,2812,2562,2014/11
 Mali,4,3,3,2014/11
@@ -16,7 +15,6 @@ Senegal,1,0,1,2014/11
 Sierra Leone,5586,1187,4683,2014/11
 Spain,1,0,1,2014/11
 United States of America,4,1,4,2014/11
-
 Guinea,2394,1518,2115,2014/12
 Liberia,7797,3290,2946,2014/12
 Mali,8,6,7,2014/12
@@ -25,7 +23,6 @@ Senegal,1,0,1,2014/12
 Sierra Leone,8273,2033,6638,2014/12
 Spain,1,0,1,2014/12
 United States of America,4,1,4,2014/12
-
 Guinea,2806,1814,2514,2015/01
 Liberia,8331,3538,3127,2015/01
 Mali,8,6,7,2015/01
@@ -34,7 +31,6 @@ Senegal,1,0,1,2015/01
 Sierra Leone,10124,3062,7786,2015/01
 Spain,1,0,1,2015/01
 United States of America,4,1,4,2015/01
-
 Guinea,3081,2032,2693,2015/02
 Liberia,8931,3858,3147,2015/02
 Mali,8,6,7,2015/02
@@ -43,7 +39,6 @@ Senegal,1,0,1,2015/02
 Sierra Leone,10987,3363,8155,2015/02
 Spain,1,0,1,2015/02
 United States of America,4,1,4,2015/02
-
 Guinea,3285,2170,2946,2016/03
 Liberia,9343,4162,6638,2016/03
 Mali,8,6,1,2016/03
