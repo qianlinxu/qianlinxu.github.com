@@ -1,5 +1,8 @@
 body {
-    background-color: black; 
+  background-image: url(/ebola/background.jpg); 
+    font-family: sans-serif;
+    background-repeat: no-repeat, repeat;
+    background-color: black
   }
   
   
@@ -12,26 +15,33 @@ body {
   }
 
 
-  img {
+  .img {
     display: block;
     margin-left: auto;
     margin-right: auto;
   }
   
-  div2 {
+  
+  
+ p {
     color:rgb(148, 8, 8);
+    text-align: justify;
+    width: 400px;
   }
 
 
 
 .content {
-    width: 400px;
+  color:rgb(148, 8, 8);
     border: 4px solid red;
     padding: 20px;
     overflow: hidden;
+    width:900px;
+    margin:0 auto;
 }
 
 .content img {
     margin-right: 15px;
     float: left;
 }
+
