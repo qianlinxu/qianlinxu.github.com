@@ -1,3 +1,7 @@
+d3.csv("/ebola/eboladata.csv", function(error, data) {
+    console.log("/ebola/eboladata.csv:",data);
+});
+
 var width=window.innerWidth;
 var height=900;
 
@@ -71,11 +75,8 @@ d3.queue()
 
 
 
-     var points = [
-            {"name": "Boston", "coords": [-71.0589, 42.3601]},
-            {"name": "London", "coords": [-0.1278, 51.5074]},
-            {"name": "Chicago", "coords": [-87.6298, 41.8781]}
-            ];
+    
+        
             
         var cities = svg.selectAll("circle")
             .data(points);
