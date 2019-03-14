@@ -40,7 +40,7 @@ d3.queue()
 
        
     var proj = d3.geoMercator()
-            .fitSize([width,600], geoJSON);
+            .fitSize([width,height], geoJSON);
      var path = d3.geoPath()
             .projection(proj);
 
