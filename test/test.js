@@ -3,7 +3,7 @@ var height=900;
 
 d3.queue()
     .defer(d3.csv,"/data/csvfile.csv")
-    .defer(d3.csv,"/Feb20/Feb20.csv")
+    .defer(d3.csv,"/ebola/eboladata.csv")
     .defer(d3.json,"/feb28/world.json")
     .awaitAll(function(error,dataArray) {
    
