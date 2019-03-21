@@ -1,6 +1,3 @@
-d3.csv("/ebola/eboladata.csv", function( data) {
-    console.log("/ebola/eboladata.csv:",data);
-});
 
 var width=window.innerWidth;
 var height=900;
@@ -9,32 +6,36 @@ var height=900;
  
 
 d3.queue()
-    .defer(d3.csv,"/data/csvfile.csv")
+
     .defer(d3.csv,"/ebola/eboladata.csv")
     .defer(d3.json,"/feb28/world.json")
     .awaitAll(function(error,dataArray) {
    
         var data = dataArray[0];
+        console.log(data) 
 
      data.forEach(function(d) {
-            d.export = parseFloat(d.export);
+            d.Cases = parseFloat(d.Cases);
         });
 
     var latestData = data.filter(function(d) {
-            return d.year == "2018"; }
-            
+            return d.Time == "2014/10"; }
             )
+
+           
+
     var domain = d3.extent(latestData, function(d){
-            return d.export;}
+            return d.Cases;}
             );
+            console.log(latestData)
 
 
         var colorScale = d3.scaleLinear()
             .domain(domain)
             .range(["rgb(200,200,150)","rgb(100,0,0)"]);
 
-     var names = dataArray[1];
-     var countryTopoJSON = dataArray[2];
+  
+     var countryTopoJSON = dataArray[1];
      
      var geoJSON = topojson.feature(countryTopoJSON, countryTopoJSON.objects.countries);
 
@@ -69,10 +70,10 @@ d3.queue()
 
        .attr("fill",function(feature) {
                 var matches = latestData.filter(function(d){
-                   return d.country == feature.id.toLowerCase(); });
-               
+                   return d.Country == feature.id; });
+               console.log(feature)
                    if (matches.length >0) {
-                   return colorScale(matches[0].export);
+                   return colorScale(matches[0].Cases);
               }
                else {
                    return "rgb(135, 38, 38)";

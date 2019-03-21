@@ -1,4 +1,4 @@
-Country,Cumulative number of confirmed,Probable and suspected Ebola cases,Cumulative number of confirmed, Probable and suspected Ebola deaths,Cumulative number of confirmed Ebola cases,Time
+Country,Cases,Deaths,Confirmed,Time
 Guinea,1553,926,1312,2014/10
 Liberia,4665,2705,965,2014/10
 Mali,1,1,1,2014/10
