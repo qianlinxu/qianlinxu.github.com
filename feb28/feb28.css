@@ -44,11 +44,13 @@ background:transparent;
 border:0;
 }
 
-.carousel_button_left{height:1%;
+.carousel_button_left{
+  height:1%;
   left:-40px;
 }
 
-.carousel_button_right{height:1%;
+.carousel_button_right{
+  height:1%;
   right:-40px
 }
 
@@ -59,7 +61,8 @@ justify-content:center;
 padding:10px 0;
 }
 
-.carousel_indicator{border:0;
+.carousel_indicator{
+border:0;
 border-radius: 50%;
 width:15px;
 height:15px;
@@ -67,7 +70,8 @@ background: rgba(0,0,0);
 margin:0 12px;
 }
 
-  .carousel_buttom img{width:12px;
+  .carousel_buttom img{
+    width:12px;
 
   }
    
