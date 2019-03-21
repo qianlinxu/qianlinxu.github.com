@@ -2,8 +2,81 @@ body {
   background-image: url(/ebola/background.jpg); 
     font-family: sans-serif;
     background-repeat: no-repeat, repeat;
-    background-color: black
+   
   }
+
+ 
+  .carousel{
+    position:relative;
+    height:600px;
+    width:80%;
+    margin:0 auto
+
+  }
+
+  .carousel-img{width:100%;
+  height:100%;
+object-fit:cover
+}
+
+  .carousel_track_container{
+    background:lightgreen;
+height:100%;
+position:relative}
+
+  .carousel_track{
+    padding:0;
+    margin:0;
+    list-style:none;  
+  }
+
+  .carousel_slide{
+    position:absolute;
+    top:0;
+    bottom:0;
+    width: 100%
+  }
+
+  .carousel_button
+  {position:absolute;
+  transform:translateY(-50%);
+background:transparent;
+border:0;
+}
+
+.carousel_button_left{height:1%;
+  left:-40px;
+}
+
+.carousel_button_right{height:1%;
+  right:-40px
+}
+
+.carousel_nav{
+background:pink;
+display:flex;
+justify-content:center; 
+padding:10px 0;
+}
+
+.carousel_indicator{border:0;
+border-radius: 50%;
+width:15px;
+height:15px;
+background: rgba(0,0,0);
+margin:0 12px;
+}
+
+  .carousel_buttom img{width:12px;
+
+  }
+   
+.carousel_nav{background:pink;
+
+}
+
+
+
   
   
 
@@ -20,7 +93,6 @@ body {
     margin-left: auto;
     margin-right: auto;
   }
-  
   
   
  p {
