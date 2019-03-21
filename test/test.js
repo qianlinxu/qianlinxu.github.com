@@ -1,9 +1,12 @@
-d3.csv("/ebola/eboladata.csv", function(error, data) {
+d3.csv("/ebola/eboladata.csv", function( data) {
     console.log("/ebola/eboladata.csv:",data);
 });
 
 var width=window.innerWidth;
 var height=900;
+
+
+ 
 
 d3.queue()
     .defer(d3.csv,"/data/csvfile.csv")
@@ -30,18 +33,20 @@ d3.queue()
             .domain(domain)
             .range(["rgb(200,200,150)","rgb(100,0,0)"]);
 
-     var vgsales = dataArray[1];
+     var names = dataArray[1];
      var countryTopoJSON = dataArray[2];
      
      var geoJSON = topojson.feature(countryTopoJSON, countryTopoJSON.objects.countries);
 
+     
      console.log(geoJSON);
         geoJSON.features =geoJSON.features.filter(function(country) {
-            return country.id != "AQ" && country.id != -99 ;
+            return country.id == "Guinea"|| country.id == "Mali"|| country.id == "Nigeria"|| country.id == "Senegal"
+            ||country.id == "Sierra Leone"|| country.id == "Liberia";
+    
         });
 
      
-
        
     var proj = d3.geoMercator()
             .fitSize([width,height], geoJSON);
@@ -58,26 +63,35 @@ d3.queue()
             var countries = svg.selectAll("path")
             .data(geoJSON.features);
           
-        countries.enter().append("path")
+       countries.enter().append("path")
             .attr("d", function(d) {
                 return path(d); })
-            .attr("fill",function(feature) {
+
+       .attr("fill",function(feature) {
                 var matches = latestData.filter(function(d){
-                        return d.country == feature.id.toLowerCase(); });
-                
-                        if (matches.length >0) {
-                    return colorScale(matches[0].export);
+                   return d.country == feature.id.toLowerCase(); });
+               
+                   if (matches.length >0) {
+                   return colorScale(matches[0].export);
+              }
+               else {
+                   return "rgb(135, 38, 38)";
                 }
-                else {
-                    return "rgb(200,200,200)";
-                }
-            });
+           })
+
+        .attr("stroke",function(feature) {
+            var matches = latestData.filter(function(d){
+               return d.country == feature.id.toLowerCase(); });
+           
+               if (matches.length >0) {
+               return colorScale(matches[0].export);
+          }
+           else {
+               return "rgb(255, 255, 255)";
+            }
+       });
 
 
-
-    
-        
-            
         var cities = svg.selectAll("circle")
             .data(points);
             
