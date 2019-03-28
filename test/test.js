@@ -124,11 +124,14 @@ function Draw() {
     var SierraLeone_Cases = [];
     var SierraLeone_Deaths = [];
     var SierraLeone_Confirmed = [];
+
     for (var i = 0; i < CSVData.length; i++) {
         if (CSVData[i].Time == undefined) {
             continue;
         }
+        
         XData.push(CSVData[i].Time);
+
         switch (CSVData[i].Country) {
             case "Guinea":
                 Guinea_Cases.push(CSVData[i].Cases);

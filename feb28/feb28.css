@@ -81,8 +81,7 @@ margin:0 12px;
 
 
 
-  
-  
+
 
   h1 {
     text-align: center;
@@ -120,6 +119,7 @@ margin:0 12px;
     width:900px;
     margin:0 auto;
     background-color:black;
+    
 }
 
 .content img {
@@ -127,3 +127,5 @@ margin:0 12px;
     float: left;
 }
 
+.myMap
+{margin-bottom: 30px;}
