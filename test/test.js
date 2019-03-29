@@ -28,7 +28,6 @@ d3.queue()
            
           
 
-  
      var countryTopoJSON = dataArray[1];
      
      var geoJSON = topojson.feature(countryTopoJSON, countryTopoJSON.objects.countries);
@@ -95,6 +94,8 @@ d3.queue()
             .attr("r",10)
             .attr("fill","red");
     });
+    
+    //line chart
 
 function Draw() {
     console.log(CSVData);
@@ -124,19 +125,33 @@ function Draw() {
     var SierraLeone_Cases = [];
     var SierraLeone_Deaths = [];
     var SierraLeone_Confirmed = [];
-
+    
     for (var i = 0; i < CSVData.length; i++) {
         if (CSVData[i].Time == undefined) {
             continue;
         }
-        
-        XData.push(CSVData[i].Time);
 
+//hide and show
+
+        function hideAndShow() {
+            var x = document.getElementById("Guinea_Cases");
+
+
+            if (x.style.display === "none") {
+              x.style.display = "block";
+            } else {
+              x.style.display = "none";
+            }
+          }
+
+          console.log(Guinea_Cases)
+
+          //orignal code
+        XData.push(CSVData[i].Time);
         switch (CSVData[i].Country) {
             case "Guinea":
                 Guinea_Cases.push(CSVData[i].Cases);
-                Guinea_Deaths.push(CSVData[i].Deaths);
-                Guinea_Confirmed.push(CSVData[i].Confirmed);
+               
                 break;
             case "Liberia":
                 Liberia_Cases.push(CSVData[i].Cases);
@@ -196,10 +211,9 @@ function Draw() {
         { name: "SierraLeone_Confirmed", type: "line", data: SierraLeone_Confirmed },
     ];
 
-    console.log(XData);
-
 
     var chart = echarts.init($("#echart_area")[0]);
+   
 
     option = {
         title: {
@@ -237,15 +251,15 @@ function Draw() {
     chart.setOption(option);
 }
 
-function uniq(array) {
-    var temp = []; 
-    for (var i = 0; i < array.length; i++) {
-        if (temp.indexOf(array[i]) == -1) {
-            temp.push(array[i]);
-        }
-    }
-    return temp;
-}
-$(function () {
-    setTimeout(Draw,200)
-});
+ function uniq(array) {
+     var temp = []; 
+     for (var i = 0; i < array.length; i++) {
+         if (temp.indexOf(array[i]) == -1) {
+             temp.push(array[i]);
+         }
+     }
+     return temp;
+ }
+ $(function () {
+     setTimeout(Draw,200)
+ });
