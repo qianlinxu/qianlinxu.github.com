@@ -46,15 +46,30 @@ d3.queue()
      var path = d3.geoPath()
             .projection(proj);
 
-
+   
     var svg = d3.selectAll("#mymap")
             .attr("width", width + "px")
             .attr("height", height + "px");
-    
-    
-    
             var countries = svg.selectAll("path")
-            .data(geoJSON.features);
+            .data(geoJSON.features)
+
+   //tooltip 
+            .on("mouseHERE", function(d) { 
+                var mouse = d3.mouse(this);
+                d3.select("#tooltip")
+                    .style("display", "block")
+                    .html("<h1>" + d.Country + 
+                            + d.Cases 
+                            + d.Deaths,
+                            + d.Confirmed
+                           )
+                 
+                    .style("top", mouse[0] - 100 + "px");
+            })
+            .on("mouseout", function(d) { //hide tooltip
+                d3.select("#tooltip")
+                    .style("display", "none")
+            })
           
        countries.enter().append("path")
             .attr("d", function(d) {
@@ -63,7 +78,6 @@ d3.queue()
        .attr("fill",function(feature) {
                 var matches = latestData.filter(function(d){
                    return d.Country == feature.id; });
-
                    if (matches.length >0) {
                    return colorScale(matches[0].Cases);
               }
@@ -71,6 +85,8 @@ d3.queue()
                    return "rgb(135, 38, 38)";
                 }
            })
+
+         
 
         .attr("stroke",function(feature) {
             var matches = latestData.filter(function(d){
@@ -85,16 +101,21 @@ d3.queue()
        });
 
 
-        var cities = svg.selectAll("circle").data(points);
+        var cities = svg.selectAll("mymap").data(points);
             
         cities.enter().append("circle")
             .attr("transform", function(d){
                 return "translate(" + proj(d.coords) + ")";
             })
             .attr("r",10)
-            .attr("fill","red");
+            .attr("fill","red")
+        
+           
     });
-    
+
+  
+   
+
     //line chart
 
 function Draw() {
@@ -131,6 +152,9 @@ function Draw() {
             continue;
         }
 
+
+
+
 //hide and show
 
         function hideAndShow() {
@@ -151,32 +175,32 @@ function Draw() {
         switch (CSVData[i].Country) {
             case "Guinea":
                 Guinea_Cases.push(CSVData[i].Cases);
-               
+                Liberia_Deaths.push(CSVData[i].Deaths);
                 break;
             case "Liberia":
                 Liberia_Cases.push(CSVData[i].Cases);
                 Liberia_Deaths.push(CSVData[i].Deaths);
-                Liberia_Confirmed.push(CSVData[i].Confirmed);
+              
                 break;
             case "Mali":
                 Mali_Cases.push(CSVData[i].Cases);
                 Mali_Deaths.push(CSVData[i].Deaths);
-                Mali_Confirmed.push(CSVData[i].Confirmed);
+               
                 break;
             case "Nigeria":
                 Nigeria_Cases.push(CSVData[i].Cases);
                 Nigeria_Deaths.push(CSVData[i].Deaths);
-                Nigeria_Confirmed.push(CSVData[i].Confirmed);
+                
                 break;
             case "Senegal":
                 Senegal_Cases.push(CSVData[i].Cases);
                 Senegal_Deaths.push(CSVData[i].Deaths);
-                Senegal_Confirmed.push(CSVData[i].Confirmed);
+           
                 break;
             case "Sierra Leone":
                 SierraLeone_Cases.push(CSVData[i].Cases);
                 SierraLeone_Deaths.push(CSVData[i].Deaths);
-                SierraLeone_Confirmed.push(CSVData[i].Confirmed);
+               
                 break;
             default:
                 break;
