@@ -175,31 +175,31 @@ function Draw() {
         switch (CSVData[i].Country) {
             case "Guinea":
                 Guinea_Cases.push(CSVData[i].Cases);
-                Liberia_Deaths.push(CSVData[i].Deaths);
+                
                 break;
             case "Liberia":
                 Liberia_Cases.push(CSVData[i].Cases);
-                Liberia_Deaths.push(CSVData[i].Deaths);
+            
               
                 break;
             case "Mali":
                 Mali_Cases.push(CSVData[i].Cases);
-                Mali_Deaths.push(CSVData[i].Deaths);
+            
                
                 break;
             case "Nigeria":
                 Nigeria_Cases.push(CSVData[i].Cases);
-                Nigeria_Deaths.push(CSVData[i].Deaths);
+             
                 
                 break;
             case "Senegal":
                 Senegal_Cases.push(CSVData[i].Cases);
-                Senegal_Deaths.push(CSVData[i].Deaths);
+           
            
                 break;
             case "Sierra Leone":
                 SierraLeone_Cases.push(CSVData[i].Cases);
-                SierraLeone_Deaths.push(CSVData[i].Deaths);
+            
                
                 break;
             default:
