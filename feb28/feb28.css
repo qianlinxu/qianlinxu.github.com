@@ -99,7 +99,13 @@ body {
   }
 
 
-
+.text{float:center;
+  padding-top: 50px;
+  color:rgb(167, 66, 66);
+  text-align: justify;
+  width: 400px;
+  text-align:center;
+  margin-left:200px}
 
  /* .carousel{
     position:relative;
