@@ -4,10 +4,6 @@ var CSVData = "";
 
 
 
-var tooltip = d3.select("body").append("div").attr("class", "tooltip").style("opacity", 0.0);
-
-
-
 
 d3.queue().defer(d3.csv, "/ebola/eboladata.csv").defer(d3.json, "/feb28/world.json").awaitAll(function (error, dataArray) {
     var data = dataArray[0];
@@ -55,20 +51,19 @@ d3.queue().defer(d3.csv, "/ebola/eboladata.csv").defer(d3.json, "/feb28/world.js
     var svg = d3.selectAll("#mymap").attr("width", width + "px").attr("height", height + "px");
 
 
-
-
     var countries = svg.selectAll("path").data(geoJSON.features);
 
-
+// fill the map
     countries.enter().append("path")
         .attr("d", function (d) {
             return path(d);
-        }).on('click', function (feature) {
+        }).on('mousemove', function (feature) {
             var matches = latestData.filter(function (d) {
                 return d.Country == feature.id;
             });
             var str = "Country:" + matches[0].Country + "<br/>" + " Cases:" + matches[0].Cases + "<br/>" + " Deaths :" + matches[0].Deaths + "<br/>"  + " Confirmed :" + matches[0].Confirmed ;
             console.log(matches);
+
             tooltip.html(str).style("left", (d3.event.pageX) + "px").style("top", (d3.event.pageY + 20) + "px").style("opacity", 1.0);
         })
 
@@ -109,6 +104,13 @@ d3.queue().defer(d3.csv, "/ebola/eboladata.csv").defer(d3.json, "/feb28/world.js
         .attr("fill", "red");
 });
 
+
+//tooltip for map
+var tooltip = d3.select("body").append("div").attr("class", "tooltip").style("opacity", 0.0);
+
+
+//diagram 
+
 function Draw() {
     console.log(CSVData);
 
@@ -137,11 +139,14 @@ function Draw() {
     var SierraLeone_Cases = [];
     var SierraLeone_Deaths = [];
     //var SierraLeone_Confirmed = [];
+
+    // loading data
     for (var i = 0; i < CSVData.length; i++) {
         if (CSVData[i].Time == undefined) {
             continue;
         }
         XData.push(CSVData[i].Time);
+
         switch (CSVData[i].Country) {
             case "Guinea":
                 Guinea_Cases.push(CSVData[i].Cases);
@@ -208,17 +213,24 @@ function Draw() {
 
     console.log(XData);
 
+//change Echart color
 
     var chart = echarts.init($("#echart_area")[0]);
+    
 
-    option = {
+    
+//set option
+
+    option ={
         color: ['#f31247', '#db0f0a', '#3a55e9', '#3a9be9', '#3ae994', '#29a368', '#e128f0', '#f028be', '#f6e5e5', '#ffffff', '#c7be85', '#ddc636'],
         title: {
             text: ''
         },
+
         tooltip: {
-            trigger: 'axis'
+            trigger: 'item'
         },
+
         legend: {
             data: ["Guinea_Cases", "Guinea_Deaths", "Liberia_Cases", "Liberia_Deaths", "Mali_Cases", "Mali_Deaths",
                 "Nigeria_Cases", "Nigeria_Deaths", "Senegal_Cases", "Senegal_Deaths", "SierraLeone_Cases", "SierraLeone_Deaths"],
@@ -237,18 +249,21 @@ function Draw() {
             y: 120,
             containLabel: true
         },
+
+
         toolbox: {
             feature: {
                 //saveAsImage: {}
             }
         },
+
         xAxis: {
             type: 'category',
             boundaryGap: false,
             data: XData,
             axisLine: {
                 lineStyle: {
-                    color: "yellow"
+                    color: "white"
                 }
             }
         },
@@ -256,7 +271,7 @@ function Draw() {
             type: 'value',
             axisLine: {
                 lineStyle: {
-                    color: "yellow"
+                    color: "white"
                 }
             }
         },
@@ -265,6 +280,9 @@ function Draw() {
 
     chart.setOption(option);
 }
+
+
+// extract the repeat
 
 function uniq(array) {
     var temp = []; 
@@ -275,6 +293,7 @@ function uniq(array) {
     }
     return temp;
 }
+
 $(function () {
     setTimeout(Draw, 1000)
 });
