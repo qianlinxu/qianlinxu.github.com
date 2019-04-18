@@ -79,9 +79,9 @@ var tooltip = d3.select("body").append("div").attr("class", "tooltip").style("op
             .style("opacity", 1.0);
         })
 
-        // .on('mouseout', function () {
-        //     tooltip.style("display", "none")
-        // })
+        .on('mouseout', function () {
+            tooltip.style("display", "block")
+        })
 
        
 
