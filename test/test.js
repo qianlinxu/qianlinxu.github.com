@@ -1,3 +1,4 @@
+
 var width = window.innerWidth;
 var height = 600;
 var CSVData = "";
@@ -48,24 +49,41 @@ d3.queue().defer(d3.csv, "/ebola/eboladata.csv").defer(d3.json, "/feb28/world.js
         .projection(proj);
 
 
-    var svg = d3.selectAll("#mymap").attr("width", width + "px").attr("height", height + "px");
+    var svg = d3.selectAll("#mymap")
+        .attr("width", width + "px")
+         .attr("height", height + "px");
 
 
     var countries = svg.selectAll("path").data(geoJSON.features);
 
 // fill the map
+//tooltip for map
+
+var tooltip = d3.select("body").append("div").attr("class", "tooltip").style("opacity", 0.0);
+
+   
     countries.enter().append("path")
         .attr("d", function (d) {
             return path(d);
-        }).on('mousemove', function (feature) {
+        })
+        .on('mousemove', function (feature) {
             var matches = latestData.filter(function (d) {
                 return d.Country == feature.id;
             });
             var str = "Country:" + matches[0].Country + "<br/>" + " Cases:" + matches[0].Cases + "<br/>" + " Deaths :" + matches[0].Deaths + "<br/>"  + " Confirmed :" + matches[0].Confirmed ;
             console.log(matches);
 
-            tooltip.html(str).style("left", (d3.event.pageX) + "px").style("top", (d3.event.pageY + 20) + "px").style("opacity", 1.0);
+            
+            tooltip.html(str).style("left", (d3.event.pageX) + "px")
+            .style("top", (d3.event.pageY + 20) + "px")
+            .style("opacity", 1.0);
         })
+
+        // .on('mouseout', function () {
+        //     tooltip.style("display", "none")
+        // })
+
+       
 
         .attr("fill", function (feature) {
             var matches = latestData.filter(function (d) {
@@ -104,9 +122,6 @@ d3.queue().defer(d3.csv, "/ebola/eboladata.csv").defer(d3.json, "/feb28/world.js
         .attr("fill", "red");
 });
 
-
-//tooltip for map
-var tooltip = d3.select("body").append("div").attr("class", "tooltip").style("opacity", 0.0);
 
 
 //diagram 
@@ -297,3 +312,4 @@ function uniq(array) {
 $(function () {
     setTimeout(Draw, 1000)
 });
+
